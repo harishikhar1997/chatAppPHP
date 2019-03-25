@@ -1,0 +1,41 @@
+SELECT chat.chat_id,chat.part1,chat.part2,chat.lastmsg_id,
+			
+			users.username,DATE_FORMAT(last_activity,'%W, %M %e, %Y @ %h:%i %p') dt,users.currStatus,	users.user_id,users.file_name,users.last_activity,
+
+			message.msg,message.msg_id,message.status,message.sender,message.reciever,DATE_FORMAT(sent_at,'%H:%i %p') TIMEONLY
+
+			FROM chat INNER JOIN users ON users.user_id=IF(chat.part2!=27,chat.part2,chat.part1) 
+
+			INNER JOIN message ON message.msg_id=chat.lastmsg_id 
+
+			WHERE part1=27 OR part2=27 AND message.msg_id=lastmsg_id 
+
+			ORDER BY chat.lastmsg_id DESC
+
+
+
+
+
+
+
+			SELECT chat.chat_id,chat.part1,chat.part2,chat.lastmsg_id,
+			
+			message.msg,message.msg_id,message.status,message.sender,message.reciever,DATE_FORMAT(sent_at,'%H:%i %p') TIMEONLY
+
+			FROM chat INNER JOIN message ON message.msg_id=chat.lastmsg_id 
+
+			WHERE part1=27 OR part2=27 AND message.msg_id=lastmsg_id 
+
+			ORDER BY chat.lastmsg_id DESC
+
+
+
+			SELECT chat.chat_id,chat.part1,chat.part2,chat.lastmsg_id,
+			
+			message.msg,message.msg_id,message.status,message.sender,message.reciever,DATE_FORMAT(sent_at,'%H:%i %p') TIMEONLY
+
+			FROM chat INNER JOIN message ON message.chat_id=chat.chat_id 
+
+			WHERE part1=27 OR part2=27 AND message.msg_id=lastmsg_id 
+
+			ORDER BY chat.lastmsg_id DESC

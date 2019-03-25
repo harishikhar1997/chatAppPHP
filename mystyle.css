@@ -1,0 +1,430 @@
+body{
+		height: 100%;
+		margin: 0;
+		background: #7F7FD5;
+	    background: -webkit-linear-gradient(to right, #91EAE4, #86A8E7, #7F7FD5);
+	    background: linear-gradient(to right, #91EAE4, #86A8E7, #7F7FD5);
+		}
+		.container{
+			align-content: center;
+		}
+		.chat{
+			margin-top:37px;
+			margin-bottom: auto;
+			margin-right: 900px;
+		}
+		.chat1{
+			margin-left: 385px;
+    	margin-top: -534px;
+			margin-bottom: auto;
+		}
+		.card{
+			height: 500px;
+			border-radius: 15px !important;
+			background-color: rgba(0,0,0,0.4) !important;
+		}
+		.contacts_body{
+			padding:  0.75rem 0 !important;
+			overflow-y: auto;
+			white-space: nowrap;
+		}
+		.contacts{
+			list-style: none;
+			padding: 0;
+		}
+		.contacts li{
+			width: 100% !important;
+			padding: 5px 10px;
+			margin-bottom: 15px !important;
+		}
+		.card-header{
+			border-radius: 15px 15px 0 0 !important;
+			border-bottom: 0 !important;
+		}
+		.search{
+			border-radius: 15px 0 0 15px !important;
+			background-color: rgba(0,0,0,0.3) !important;
+			border:0 !important;
+			color:white !important;
+		}
+		.search:focus{
+		     box-shadow:none !important;
+           outline:0px !important;
+		}
+		.search_btn{
+			border-radius: 0 15px 15px 0 !important;
+			background-color: rgba(0,0,0,0.3) !important;
+			border:0 !important;
+			color: white !important;
+			cursor: pointer;
+		}
+		.user_img{
+			height: 70px;
+			width: 70px;
+			border:1.5px solid #f5f6fa;
+		
+		}
+		.user_img_msg{
+			height: 40px;
+			width: 40px;
+			border:1.5px solid #f5f6fa;
+		
+		}
+	.img_cont{
+			position: relative;
+			height: 70px;
+			width: 70px;
+	}
+	.img_cont_msg{
+			height: 40px;
+			width: 40px;
+	}
+	.user_info{
+		margin-top: auto;
+		margin-bottom: auto;
+		margin-left: 15px;
+	}
+	.user_info span{
+		font-size: 25px;
+		color: white;
+	}
+	.uname{
+		font-size: 25px;
+		color: white;
+	}
+	.ustatus{
+		font-size: 10px;
+		color: white;
+		margin-left: 10px
+	}
+	.user_info button{
+		font-size: 25px;
+		color: white;
+	}
+	.user_info button.link{
+		background:none;
+		border:none;
+	}
+	button.new-users{
+	background:none;
+		border:none;
+}
+	.user_info p{
+	font-size: 15px;
+	color: rgba(255,255,255,0.6);
+	}
+	.user_info:hover {
+    cursor: pointer;
+	}
+	.add-contact.col-md-2 {
+    font-size: 25px;
+    margin-left: -15px;
+	}
+	i.fas.fa-plus:hover {
+    cursor: pointer;
+	}
+
+	i.fas.fa-eye {
+    padding-left: 150px;
+    margin-top: -23px;
+    font-size: 17px;
+	}
+
+		i.fas.fa-eye-slash {
+    padding-left: 150px;
+    margin-top: -23px;
+    font-size: 17px;
+	}
+
+	.online_icon{
+		height: 15px;
+		width:15px;
+		background-color: #4cd137;
+		border-radius: 50%;
+		bottom: 0.2em;
+		right: 0.4em;
+		border:1.5px solid white;
+		margin-top: 55px;
+    margin-left: -20px;
+	}
+	.offline{
+		background-color: #c23616 !important;
+	}
+
+	.msg_card-body,.test{
+			overflow-y: auto;
+	}
+	.msg_cotainer{
+		margin-top: auto;
+		margin-bottom: auto;
+		margin-left: 10px;
+		border-radius: 25px;
+		background-color: #82ccdd;
+		padding: 10px;
+		position: relative;
+	}
+	.msg_cotainer_send{
+		margin-top: auto;
+		margin-bottom: auto;
+		margin-right: 10px;
+		border-radius: 25px;
+		background-color: #78e08f;
+		padding: 10px;
+		position: relative;
+	}
+	.msg_head{
+		position: relative;
+	}
+	.msg_time{
+		position: absolute;
+		left: 0;
+		bottom: -15px;
+		color: rgba(255,255,255,0.5);
+		font-size: 10px;
+	}
+	.msg_time_send{
+		position: absolute;
+		right:0;
+		bottom: -15px;
+		color: rgba(255,255,255,0.5);
+		font-size: 10px;
+	}
+
+	.type_msg{
+			background-color: rgba(0,0,0,0.3) !important;
+			border:0 !important;
+			color:white !important;
+			height: 60px !important;
+			overflow-y: auto;
+			font-size: 15px;
+		}
+		.type_msg:focus{
+		  box-shadow:none !important;
+      outline:0px !important;
+		}
+		.attach_btn{
+			border-radius: 15px 0 0 15px !important;
+			background-color: rgba(0,0,0,0.3) !important;
+			border:0 !important;
+			color: white !important;
+			cursor: pointer;
+		}
+		.send_btn{
+			border-radius: 0 15px 15px 0 !important;
+			background-color: rgba(0,0,0,0.3) !important;
+			border:0 !important;
+			color: white !important;
+			cursor: pointer;
+		}
+
+
+	@keyframes slideInFromLeft {
+        0% {
+            transform: translateX(100%);
+        }
+        100% {
+            transform: translateX(0);
+        }
+    }
+
+    .chat1{  
+  /* This section calls the slideInFromLeft animation we defined above */
+  animation: 1s ease-out 0s 1 slideInFromLeft;
+  
+  padding: 30px;
+}
+
+
+	@media(max-width: 576px){
+	.contacts_body{
+		margin-bottom: 15px !important;
+	}
+	}
+
+	@media screen and (min-width: 48em){
+    body{
+        text-align: justify;
+    }
+}
+
+
+/* The Modal (background) */
+.modal {
+
+	max-height: 100%;
+	max-width: 100%;
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1010; /* Sit on top */
+  padding-top: 100px; /* Location of the box */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+/* Modal Content */
+.modal-content {
+
+  z-index: 1000;
+  position: relative;
+  background-color: #fefefe;
+  margin: auto;
+  padding: 0;
+  border: 1px solid #888;
+  width: 45%;
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
+  -webkit-animation-name: animatetop;
+  -webkit-animation-duration: 0.4s;
+  animation-name: animatetop;
+  animation-duration: 0.4s
+  overflow: auto;
+}
+
+/* Add Animation */
+@-webkit-keyframes animatetop {
+  from {top:-300px; opacity:0} 
+  to {top:0; opacity:1}
+}
+
+@keyframes animatetop {
+  from {top:-300px; opacity:0}
+  to {top:0; opacity:1}
+}
+
+/* The Close Button */
+.close {
+  color: white;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.modal-header {
+  padding: 21px 16px;
+  background-color: #7faad5;
+  color: white;
+}
+
+.modal-body {padding: 2px 16px;}
+
+.modal-footer {
+  padding: 21px 16px;
+  background-color: #7faad5;
+  color: white;
+}
+
+
+
+
+/*.list-type6{
+width:410px;
+margin:0 auto;
+}
+
+.list-type6 { }
+.list-type6 ul {
+list-style:none;
+}
+.list-type6 ul button {
+font-size:15px;
+font-family: 'Raleway', sans-serif;
+}
+.list-type6 ul button a {
+display:block;
+width:300px;
+margin-left: -172px;
+height:35px;
+background-color:#03B3CB;
+border-left:5px solid #222;
+border-right:5px solid #222;
+padding-left:10px;
+padding-top:7px;
+text-decoration:none;
+color:white;
+margin-bottom: 7px;
+transition: all .2s ease-in-out;
+}
+.list-type6 ul button a:hover {
+-moz-transform:rotate(-5deg);
+-moz-box-shadow:10px 10px 20px #000000;
+-webkit-transform:rotate(-5deg);
+-webkit-box-shadow:10px 10px 20px #000000;
+transform:rotate(-5deg);
+box-shadow:10px 10px 20px #000000;
+}
+*/
+
+.Pcard {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  max-width: 300px;
+  margin: auto;
+  text-align: center;
+  font-family: arial;
+}
+
+.Pbutton {
+  border: none;
+  outline: 0;
+  display: inline-block;
+  padding: 8px;
+  color: white;
+  background-color: #000;
+  text-align: center;
+  cursor: pointer;
+  width: 100%;
+  font-size: 18px;
+}
+
+.Picons a{
+  text-decoration: none;
+  font-size: 22px;
+  color: black;
+}
+
+.Pbutton:hover, .Picons a:hover {
+  opacity: 0.7;
+}
+
+.prev,
+.next {
+  cursor: pointer;
+  position: absolute;
+  top: 40%;
+  width: auto;
+  padding: 16px;
+  margin-top: -50px;
+  color: white;
+  font-weight: bold;
+  font-size: 20px;
+  border-radius: 0 3px 3px 0;
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+.prev:hover,
+.next:hover {
+  background-color: rgba(0, 0, 0, 0.8);
+}
+.next {
+  right: 0;
+  border-radius: 3px 0 0 3px;
+}
+
+.mySlides {
+  display: none;
+}
+
+
+
+
