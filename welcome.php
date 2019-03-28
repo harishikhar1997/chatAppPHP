@@ -2,13 +2,27 @@
 // Initialize the session
 session_start();
  
- // echo "<h1>Hi, <b>".$_SESSION['currUser']."</b> Welcome to our site.</h1>";
 
 // Check if the user is logged in, if not then redirect him to login page
-if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
-    header("location: login.php");
-    exit;
+// if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
+//     header("location: login.php");
+//     exit;
+// }
+
+
+if($_SESSION["role"] =="subscriber" && (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true)) 
+{
+	  header("location: login.php");
+    exit;  
 }
+
+
+// if($_SESSION["role"] == "admin"){
+// 	header("location: index.php");
+//     exit;
+// }
+
+
 require_once "connect.php";
 ?>
 
@@ -43,8 +57,6 @@ require_once "connect.php";
 
 $currUser=$_SESSION['currUser'];
  
-
-// $sql="SELECT users.username,message.msg,message.status FROM users INNER JOIN message ON users.user_id=message.reciever";
 
 $sql10="SELECT file_name FROM users WHERE username='".$_SESSION['username']."'";
 $res10 = $conn->query($sql10);
@@ -193,14 +205,13 @@ if ($result->num_rows>=0){
 $conn->close();
 
 ?>
-<!-- <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.3/jquery.min.js"></script> -->
 
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.5/jquery.mCustomScrollbar.min.js"></script>
 <!-- <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script> -->
 
 
 <script>
-	//	$(document).ready(function(){
+
 		var slideIndex = 1;
 	showSlides(slideIndex);
 
@@ -220,7 +231,6 @@ function showSlides(n) {
   
   slides[slideIndex-1].style.display = "block";
 }
-//});
 </script>
 
 
@@ -229,11 +239,10 @@ function showSlides(n) {
 
 	var active_chat_id= null;
 	var active_reciever_id= null;
-	// var typeahead;
+	var typeahead;
 
 $(document).ready(function(){
 	
-	//$(".chat1").hide();
 	//$(".link").click(function(){
 	$("body").on("click",".link",function(){
 		$(".chat1").fadeIn();
@@ -241,7 +250,7 @@ $(document).ready(function(){
 
 
 $('#skill_input').keyup(function(e){
-	var typeahead = e.target.value;
+	typeahead = e.target.value;
 	getInbox(typeahead);
 })
 
@@ -266,16 +275,12 @@ $('#skill_input').keyup(function(e){
 
 	getInbox();
 
-	
-		setInterval(function(){
+			setInterval(function(){
 			if(typeahead)
  	 				getInbox(typeahead);
  	 		else
  	 			getInbox;
  }, 1000);
-
-
-
 
 	$("body").on("click",".chat-li",function(){
 
@@ -353,7 +358,7 @@ setInterval(function(){
 
 			if($data2.code==200)
 			{
-				//console.log(dta);
+				
 				$('.test').append($data2.thread);
 				$('#msg1').val("");
 			}			

@@ -2,12 +2,20 @@
 session_start();
 
     // Check if the user is already logged in, if yes then redirect him to welcome page
-    if(isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true){
-    header("location: welcome.php");
-    exit;
+    if(isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true)
+{    
+    if($_SESSION["role"] =="subscriber"){
+        header("location: welcome.php");
+        exit;
     }
+    else{
+        header("location: index.php");
+        exit;
+    }
+}
 
     require_once "connect.php";
+
 
     $username = $password = "";
     $username_err = $password_err = "";
@@ -24,18 +32,21 @@ session_start();
             $password_err = "Please enter your password.";
         } else{
             $password = trim($_POST["password"]);
+            $password1=md5($password);
         }
 
     if(empty($username_err) && empty($password_err)){
-        $sql="SELECT * FROM users WHERE users.username='$username' AND users.password='$password'";
+        $sql="SELECT * FROM users WHERE users.username='$username' AND users.password='$password1'";
         $res=$conn->query($sql);
         if ($res->num_rows==1) {
             while($row = $res->fetch_assoc()){
         // $username1 = $row['username'];
         //$password = $row['password'];
         $currUser=$row['user_id'];
-
-                        // Password is correct, so start a new session
+        $role=$row['role'];
+        $file_name=$row['file_name'];
+        $activity=$row['activity'];
+                  
         session_start();
                             
                             // Store data in session variables
@@ -43,6 +54,9 @@ session_start();
         $_SESSION["loggedin"] = true;
         $_SESSION["currUser"] = $currUser;
         $_SESSION["username"] = $username;
+        $_SESSION["role"] = $role;
+        $_SESSION["activity"] = $activity;
+        $_SESSION["image"] = $file_name;
         // echo $currUser;
         // exit();                      
 
@@ -57,9 +71,19 @@ session_start();
         }          
                             
                             // Redirect user to welcome page
+                if($role=="subscriber"){
+                    if($activity==1)
+                        header("location: welcome.php");
+                    else{
+                            $message = "Your account has been temporarily disabled!";
+                        echo "<script type='text/javascript'>alert('$message');</script>";
+                        }
+                }
+                else{
+                    header("location: index.php");   
+                }
         
-        header("location: welcome.php");
-        
+
         } else {
                 // echo "Error: " . $sql . "<br>" . $conn->error;
                 $username_err = "Username or password is incorrect!";
@@ -76,6 +100,9 @@ session_start();
     <meta charset="UTF-8">
     <title>Login</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.css">
+
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-sweetalert/1.0.1/sweetalert.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-sweetalert/1.0.1/sweetalert.min.css" />
     <style type="text/css">
         body{ font: 14px sans-serif;
         background-image: url("images/bg3.png"); }
@@ -122,5 +149,10 @@ session_start();
 
         
     </div>
+
+
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-sweetalert/1.0.1/sweetalert.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-sweetalert/1.0.1/sweetalert.min.js"></script>
 </body>
 </html>

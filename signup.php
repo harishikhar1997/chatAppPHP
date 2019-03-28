@@ -62,8 +62,8 @@ $fileType = pathinfo($targetFilePath,PATHINFO_EXTENSION);
       //  if(in_array($fileType, $allowTypes)){
          if(move_uploaded_file($_FILES["file"]["tmp_name"], $targetFilePath)){
             //die("hello");
-
-        $sql="INSERT INTO users(username,password,currStatus,file_name) values('$username','$password',1,'".$targetFilePath."')";
+            $password1=md5($password);
+        $sql="INSERT INTO users(username,password,currStatus,file_name) values('$username','$password1',1,'".$targetFilePath."')";
 
         if ($conn->query($sql) === TRUE) {
 
