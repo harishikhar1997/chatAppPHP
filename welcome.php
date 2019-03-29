@@ -10,7 +10,7 @@ session_start();
 // }
 
 
-if($_SESSION["role"] =="subscriber" && (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true)) 
+if((!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true)) 
 {
 	  header("location: login.php");
     exit;  

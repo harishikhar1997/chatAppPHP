@@ -127,13 +127,6 @@ require_once 'sidebar.php';
 
 <script src="admin/myjs.js"></script> 
 
-<!-- <script>
-    function btnDel(user_id){
-                alert(user_id);
-
-        }
-</script>
- -->
 </body>
 
 </html>
